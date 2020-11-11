@@ -1,0 +1,36 @@
+<body>
+  <div class="container">
+    <header>
+      <div class="titleBox">
+        <h1>Todo List</h1>
+        <h3>Items Remaining: {{incompleteCount}}</h3>
+        <h3>Welcome, {{currentUser.username}}</h3>
+      </div>
+      <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Tasks
+      </label>
+      <div class="loginContainer">
+        <div class="loginInfo">
+          <p class="loginTitle">Login/Logout</p>
+          {{> loginButtons}}
+        </div>
+        <a href="home">HOME</a>
+      </div>
+      <form class="new-task">
+        <input
+          class="messageBox"
+          type="text"
+          name="text"
+          placeholder="Type to add new tasks"
+        />
+        <button>New Message</button>
+      </form>
+    </header>
+    {{#if tasks}}
+    <ul>
+      {{#each tasks}} {{> task}} {{/each}}
+    </ul>
+    {{else}} {{> noTasks}} {{/if}}
+  </div>
+</body>
